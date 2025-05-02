@@ -16,7 +16,7 @@ import {
 } from '@/redux/expenseSlice';
 import { useToast } from '@/components/ui/use-toast';
 import { Label } from '@/components/ui/label';
-import { DollarSign, PieChart, Trash2 } from 'lucide-react';
+import { IndianRupee, PieChart, Trash2 } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { PieChart as RechartsChart, Pie, Cell, ResponsiveContainer, Tooltip, Legend } from 'recharts';
@@ -73,7 +73,7 @@ const ExpensesPage = () => {
     dispatch(addExpense(expenseToAdd));
     toast({
       title: 'Expense Added',
-      description: `$${expenseToAdd.amount.toFixed(2)} for ${expenseToAdd.description}`,
+      description: `₹${expenseToAdd.amount.toFixed(2)} for ${expenseToAdd.description}`,
     });
     
     // Reset form
@@ -112,7 +112,7 @@ const ExpensesPage = () => {
     dispatch(setBudget(budgetValue));
     toast({
       title: 'Budget Updated',
-      description: `Your budget has been set to $${budgetValue.toFixed(2)}.`,
+      description: `Your budget has been set to ₹${budgetValue.toFixed(2)}.`,
     });
   };
   
@@ -121,9 +121,9 @@ const ExpensesPage = () => {
       <div className="flex items-center justify-between mb-6">
         <h1 className="text-3xl font-bold">Expense Tracker</h1>
         <div className="flex items-center gap-2">
-          <DollarSign className="h-5 w-5 text-primary" />
+          <IndianRupee className="h-5 w-5 text-primary" />
           <span className="text-lg">
-            Budget: ${budget.toFixed(2)} | Spent: ${totalExpenses.toFixed(2)}
+            Budget: ₹{budget.toFixed(2)} | Spent: ₹{totalExpenses.toFixed(2)}
           </span>
         </div>
       </div>
@@ -149,7 +149,7 @@ const ExpensesPage = () => {
               </div>
               
               <div>
-                <Label htmlFor="amount">Amount ($)</Label>
+                <Label htmlFor="amount">Amount (₹)</Label>
                 <Input
                   id="amount"
                   name="amount"
@@ -158,7 +158,7 @@ const ExpensesPage = () => {
                   min="0"
                   value={newExpense.amount || ''}
                   onChange={handleInputChange}
-                  placeholder="4.50"
+                  placeholder="100"
                   required
                 />
               </div>
@@ -215,7 +215,7 @@ const ExpensesPage = () => {
                   min="0"
                   value={newBudget}
                   onChange={(e) => setNewBudget(e.target.value)}
-                  placeholder="1000.00"
+                  placeholder="10000"
                 />
                 <Button onClick={handleUpdateBudget}>Update</Button>
               </div>
@@ -267,7 +267,7 @@ const ExpensesPage = () => {
                       <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                     ))}
                   </Pie>
-                  <Tooltip formatter={(value) => [`$${value}`, 'Amount']} />
+                  <Tooltip formatter={(value) => [`₹${value}`, 'Amount']} />
                   <Legend />
                 </RechartsChart>
               </ResponsiveContainer>
@@ -308,7 +308,7 @@ const ExpensesPage = () => {
                         <td className="p-2">
                           <Badge variant="outline">{expense.category}</Badge>
                         </td>
-                        <td className="p-2 text-right font-medium">${expense.amount.toFixed(2)}</td>
+                        <td className="p-2 text-right font-medium">₹{expense.amount.toFixed(2)}</td>
                         <td className="p-2 text-right">
                           <Button 
                             size="sm" 

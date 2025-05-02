@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { BookOpen, Briefcase, CheckSquare, DollarSign } from 'lucide-react';
+import { BookOpen, Briefcase, CheckSquare, IndianRupee } from 'lucide-react';
 import { Task } from '@/redux/taskSlice';
 import { Expense } from '@/redux/expenseSlice';
 import { StudySession } from '@/redux/studySlice';
@@ -57,11 +57,11 @@ export const StatCards: React.FC<StatCardsProps> = ({
       <Card className="card-hover">
         <CardHeader className="flex flex-row items-center justify-between pb-2 space-y-0">
           <CardTitle className="text-sm font-medium">Budget Usage</CardTitle>
-          <DollarSign className="h-4 w-4 text-planner-green" />
+          <IndianRupee className="h-4 w-4 text-planner-green" />
         </CardHeader>
         <CardContent>
           <div className="text-2xl font-bold">
-            ${totalExpenses.toFixed(2)}
+            ₹{totalExpenses.toFixed(2)}
           </div>
           <p className="text-xs text-muted-foreground mt-1">
             {budgetPercentage}% of budget used
