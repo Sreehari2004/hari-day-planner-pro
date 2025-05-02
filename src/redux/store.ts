@@ -1,5 +1,5 @@
 
-import { configureStore } from '@reduxjs/toolkit';
+import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import { studyReducer } from './studySlice';
 import { projectReducer } from './projectSlice';
 import { expenseReducer } from './expenseSlice';
@@ -30,16 +30,18 @@ const saveState = (state: any) => {
   }
 };
 
+const rootReducer = combineReducers({
+  study: studyReducer,
+  projects: projectReducer,
+  expenses: expenseReducer,
+  food: foodReducer,
+  tasks: taskReducer,
+});
+
 const preloadedState = loadState();
 
 export const store = configureStore({
-  reducer: {
-    study: studyReducer,
-    projects: projectReducer,
-    expenses: expenseReducer,
-    food: foodReducer,
-    tasks: taskReducer,
-  },
+  reducer: rootReducer,
   preloadedState,
 });
 
