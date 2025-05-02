@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -105,7 +104,7 @@ export default {
 				'accordion-up': 'accordion-up 0.2s ease-out'
 			},
 			backgroundImage: {
-				'planner-pattern': "url('/src/assets/bg-pattern.png')"
+				'planner-pattern': "url('/src/assets/globe-background.png')"
 			}
 		}
 	},

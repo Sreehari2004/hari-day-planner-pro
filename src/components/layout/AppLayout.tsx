@@ -2,7 +2,7 @@
 import React from 'react';
 import { Sidebar } from './Sidebar';
 import { Toaster } from '@/components/ui/toaster';
-import bgPattern from '@/assets/bg-pattern.png';
+import globeBackground from '@/assets/globe-background.png';
 
 interface AppLayoutProps {
   children: React.ReactNode;
@@ -13,7 +13,7 @@ export const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
     <div 
       className="min-h-screen flex bg-background" 
       style={{ 
-        backgroundImage: `url(${bgPattern})`, 
+        backgroundImage: `url(${globeBackground})`, 
         backgroundSize: 'cover',
         backgroundAttachment: 'fixed',
         backgroundPosition: 'center',
@@ -23,7 +23,7 @@ export const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
       }}
     >
       <Sidebar />
-      <main className="flex-1 p-6 md:p-8 overflow-y-auto backdrop-blur-sm bg-background/85">
+      <main className="flex-1 p-6 md:p-8 overflow-y-auto backdrop-blur-sm bg-background/75">
         <div className="container mx-auto max-w-6xl">
           {children}
         </div>
