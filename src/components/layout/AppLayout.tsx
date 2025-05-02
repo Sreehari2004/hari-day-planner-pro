@@ -17,11 +17,13 @@ export const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
         backgroundSize: 'cover',
         backgroundAttachment: 'fixed',
         backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
+        backgroundRepeat: 'no-repeat',
+        backgroundColor: 'rgba(240, 240, 250, 0.8)', // Light purple/blue tint
+        backgroundBlendMode: 'overlay'
       }}
     >
       <Sidebar />
-      <main className="flex-1 p-6 md:p-8 overflow-y-auto backdrop-blur-sm bg-background/90">
+      <main className="flex-1 p-6 md:p-8 overflow-y-auto backdrop-blur-sm bg-background/85">
         <div className="container mx-auto max-w-6xl">
           {children}
         </div>

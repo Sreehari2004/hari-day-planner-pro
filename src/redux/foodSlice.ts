@@ -19,7 +19,7 @@ interface FoodState {
 
 const initialState: FoodState = {
   meals: [],
-  dailyCalorieGoal: 2000,
+  dailyCalorieGoal: 3000, // Updated from 2000 to 3000
 };
 
 const foodSlice = createSlice({
